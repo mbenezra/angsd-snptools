@@ -1,7 +1,9 @@
 #!/bin/sh
 
-cp /storage/benezra/hapmap/hapmap_3.3.hg19.vcf.gz .
-vcftools --gzvcf hapmap_3.3.hg19.vcf.gz --keep indv.txt --recode --out hapmap_3.3.ceu.hg19
-gzip --keep hapmap_3.3.ceu.hg19.recode.vcf
-grep "^[^#;]" hapmap_3.3.ceu.hg19.recode.vcf | awk '{print $1"\t"$2}' > sites.txt
-angsd sites index sites.txt
+mkdir hapmap
+
+cp /storage/benezra/hapmap/hapmap_3.3.hg19.vcf.gz ./hapmap/.
+vcftools --gzvcf ./hapmap/hapmap_3.3.hg19.vcf.gz --keep indv.txt --not-chr chrX --recode --out ./hapmap/hapmap_3.3.ceu.hg19
+gzip --keep ./hapmap/hapmap_3.3.ceu.hg19.recode.vcf
+grep "^[^#;]" ./hapmap/hapmap_3.3.ceu.hg19.recode.vcf | awk '{print $1"\t"$2}' > ./hapmap/sites.txt
+angsd sites index ./hapmap/sites.txt
