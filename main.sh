@@ -3,6 +3,7 @@
 # BAMS
 ls /home/thorfinn/data/1000g2/*CEU*.bam > bam.list
 for indv in `cat indv.txt`; do grep $indv bam.list; done > bams.list
+rm bam.list
 
 # HG19
 sh hg19.sh
