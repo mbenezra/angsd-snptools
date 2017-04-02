@@ -24,4 +24,4 @@ ls *.raw > raws.list
 /storage/benezra/bin/snptools/poprob sites.vcf raws.list prob -b 25600
 
 # PROB2VCF
-/storage/benezra/bin/snptools/prob2vcf prob out.vcf.gz 1
+for number in {1..22}; do /storage/benezra/bin/snptools/prob2vcf prob out.vcf.gz $number; done
