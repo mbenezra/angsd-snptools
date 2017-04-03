@@ -2,6 +2,10 @@
 
 mkdir hapmap
 
+for number in {1..22}; do vcftools --gzvcf ./hapmap/hapmap_3.3.hg19.vcf.gz --keep indv.txt --chr chr$number --recode --out ./hapmap/hapmap_3.3.ceu.chr$number.hg19; done
+
+for number in {1..22}; do gzip --keep ./hapmap/hapmap_3.3.ceu.chr$number.hg19.recode.vcf; done
+
 cp /storage/benezra/hapmap/hapmap_3.3.hg19.vcf.gz ./hapmap/.
 vcftools --gzvcf ./hapmap/hapmap_3.3.hg19.vcf.gz --keep indv.txt --not-chr chrX --recode --out ./hapmap/hapmap_3.3.ceu.hg19
 gzip --keep ./hapmap/hapmap_3.3.ceu.hg19.recode.vcf
