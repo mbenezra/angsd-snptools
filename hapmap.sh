@@ -24,6 +24,10 @@ for number in {1..22}; do vcftools --gzvcf ./hapmap/hapmap_3.3.hg19.vcf.gz --kee
 
 for number in {1..22}; do gzip --keep ./hapmap/hapmap_3.3.CEU.chr$number.hg19.recode.vcf; done
 
+for number in {1..22}; do awk '{gsub(/^chr/,""); print}' ./hapmap/hapmap_3.3.CEU.chr$number.hg19.recode.vcf > ./hapmap/hapmap_3.3.CEU.chr$number.hg19.vcf; done
+
+for number in {1..22}; do gzip --keep ./hapmap/hapmap_3.3.CEU.chr$number.hg19.vcf; done
+
 # one file in recode format
 vcftools --gzvcf ./hapmap/hapmap_3.3.hg19.vcf.gz --keep indv.txt --not-chr chrX --max-alleles 2 --recode --out ./hapmap/hapmap_3.3.CEU.hg19
 

@@ -2,7 +2,7 @@
 
 ls ./pileup/*.ebd > ebd.list
 for indv in `cat indv.txt`; do grep $indv ebd.list; done > ebds.list
-for number in {1..22}; do echo /storage/benezra/bin/snptools/varisite ebds.list $number ./hg19/chr$number.hg19.fa; done > varisite.txt
+for number in {1..22}; do echo /storage/benezra/bin/snptools/varisite -s 0 -v ./hapmap/hapmap_3.3.CEU.chr$number.hg19.vcf ebds.list $number ./hg19/chr$number.hg19.fa; done > varisite.txt
 
 cat varisite.txt | parallel
 
