@@ -8,7 +8,7 @@ cat varisite.txt | parallel
 
 cat 1.sites.vcf 2.sites.vcf 3.sites.vcf 4.sites.vcf 5.sites.vcf 6.sites.vcf 7.sites.vcf 8.sites.vcf 9.sites.vcf 10.sites.vcf 11.sites.vcf 12.sites.vcf 13.sites.vcf 14.sites.vcf 15.sites.vcf 16.sites.vcf 17.sites.vcf 18.sites.vcf 19.sites.vcf 20.sites.vcf 21.sites.vcf 22.sites.vcf > ./varisite/sites.vcf
 
-
+mv *.sites.vcf varisite/.
 
 
 #ls /storage/benezra/ebds2/*.ebd > ebd.list
