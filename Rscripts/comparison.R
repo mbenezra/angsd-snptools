@@ -32,8 +32,15 @@ comp <- function(true, gt, gl, pos){
   trueSet <- as.vector(unlist(gt))==as.vector(unlist(true))
   ord <- order(gl, decreasing = T)
   trueSet <- trueSet[ord]
-  callrate <- 1:length(gl)/length(gl)
-  errorrate <- 1-cumsum(trueSet)/1:length(gl)
+  
+  gl <- gl[ord]
+  num <- rep(1, length(gl))
+  df <- cbind(trueSet, num, gl)
+  ag <- aggregate(cbind(trueSet, num) ~ gl, df, sum)
+  ag <- ag[order(ag$gl, decreasing = T),]
+  
+  callrate <- cumsum(ag$trueSet)/length(gl)
+  errorrate <- 1-(cumsum(ag$trueSet)/cumsum(ag$num))
   
   return(list("callrate" = callrate, "errorrate" = errorrate))
 }
