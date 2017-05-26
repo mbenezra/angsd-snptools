@@ -61,33 +61,33 @@ getPos <- function(true, gt) {
 
 indv <- read.table("../indv.txt")[,1]
 
-hapmap.chr21 <- loadIt("../hapmap/hapmap.chr21.gt.gz", indv)
+hapmap.hg19 <- loadIt("../hapmap/hapmap.hg19.gt.gz", indv)
 
-snptools.uni.gt <- loadIt("../snptools/snptools.uni.chr21.gt.gz", indv)
-snptools.uni.gl <- loadIt("../snptools/snptools.uni.chr21.gl.gz", indv)
-snptools.freq.gt <- loadIt("../snptools/snptools.freq.chr21.gt.gz", indv)
-snptools.freq.gl <- loadIt("../snptools/snptools.freq.chr21.gl.gz", indv)
+snptools.uni.gt <- loadIt("../snptools/snptools.uni.hg19.gt.gz", indv)
+snptools.uni.gl <- loadIt("../snptools/snptools.uni.hg19.gl.gz", indv)
+snptools.freq.gt <- loadIt("../snptools/snptools.freq.hg19.gt.gz", indv)
+snptools.freq.gl <- loadIt("../snptools/snptools.freq.hg19.gl.gz", indv)
 
-pos <- getPos(hapmap.chr21, snptools.uni.gt)
+pos <- getPos(hapmap.hg19, snptools.uni.gt)
 
-angsd.uni.gt <- loadIt("../angsd/angsd.uni.chr21.gt.gz", indv)
-angsd.uni.gl <- loadIt("../angsd/angsd.uni.chr21.gl.gz", indv)
-angsd.freq.gt <- loadIt("../angsd/angsd.freq.chr21.gt.gz", indv)
-angsd.freq.gl <- loadIt("../angsd/angsd.freq.chr21.gl.gz", indv)
+angsd.uni.gt <- loadIt("../angsd/angsd.uni.hg19.gt.gz", indv)
+angsd.uni.gl <- loadIt("../angsd/angsd.uni.hg19.gl.gz", indv)
+angsd.freq.gt <- loadIt("../angsd/angsd.freq.hg19.gt.gz", indv)
+angsd.freq.gl <- loadIt("../angsd/angsd.freq.hg19.gl.gz", indv)
 
-gatk.uni.gt <- loadIt("../gatk/gatk.uni.chr21.gt.gz", indv)
-gatk.uni.gl <- loadIt("../gatk/gatk.uni.chr21.gl.gz", indv)
-gatk.freq.gt <- loadIt("../gatk/gatk.freq.chr21.gt.gz", indv)
-gatk.freq.gl <- loadIt("../gatk/gatk.freq.chr21.gl.gz", indv)
+gatk.uni.gt <- loadIt("../gatk/gatk.uni.hg19.gt.gz", indv)
+gatk.uni.gl <- loadIt("../gatk/gatk.uni.hg19.gl.gz", indv)
+gatk.freq.gt <- loadIt("../gatk/gatk.freq.hg19.gt.gz", indv)
+gatk.freq.gl <- loadIt("../gatk/gatk.freq.hg19.gl.gz", indv)
 
-snptools.uni.roc <- comp(hapmap.chr21, snptools.uni.gt, snptools.uni.gl, pos)
-snptools.freq.roc <- comp(hapmap.chr21, snptools.freq.gt, snptools.freq.gl, pos)
+snptools.uni.roc <- comp(hapmap.hg19, snptools.uni.gt, snptools.uni.gl, pos)
+snptools.freq.roc <- comp(hapmap.hg19, snptools.freq.gt, snptools.freq.gl, pos)
 
-angsd.uni.roc <- comp(hapmap.chr21, angsd.uni.gt, angsd.uni.gl, pos)
-angsd.freq.roc <- comp(hapmap.chr21, angsd.freq.gt, angsd.freq.gl, pos)
+angsd.uni.roc <- comp(hapmap.hg19, angsd.uni.gt, angsd.uni.gl, pos)
+angsd.freq.roc <- comp(hapmap.hg19, angsd.freq.gt, angsd.freq.gl, pos)
 
-gatk.uni.roc <- comp(hapmap.chr21, gatk.uni.gt, gatk.uni.gl, pos)
-gatk.freq.roc <- comp(hapmap.chr21, gatk.freq.gt, gatk.freq.gl, pos)
+gatk.uni.roc <- comp(hapmap.hg19, gatk.uni.gt, gatk.uni.gl, pos)
+gatk.freq.roc <- comp(hapmap.hg19, gatk.freq.gt, gatk.freq.gl, pos)
 
 # size <- length(snptools.uni.roc$spe)
 # samp <- sort(sample(size,floor(size/100), replace = F))
